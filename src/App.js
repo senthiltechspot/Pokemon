@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import Login from "./Components/Auth/Login";
+import User from "./Components/Auth/User";
+import Home from "./Components/Cards/Home";
 
 function App() {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isAuthenticated ? (
+        <div className="d-flex justify-content-center align-self">
+          <div className="card" style={{width: "18rem"}}>
+            <div className="card-body">
+              <h5 className="card-title">Login to see the Pokemons</h5>
+              <Login />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <User />
+          <Home />
+        </div>
+      )}
     </div>
   );
 }
