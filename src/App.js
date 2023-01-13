@@ -2,7 +2,6 @@ import "./App.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import Login from "./Components/Auth/Login";
-import User from "./Components/Auth/User";
 import Home from "./Components/Cards/Home";
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
         </div>
       ) : (
         <div>
-          <User />
           <Home />
         </div>
       )}

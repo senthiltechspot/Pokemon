@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import User from "../Auth/User";
 function FetchDataFromAPI(url) {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -32,6 +33,8 @@ const Collection = () => {
   console.log(result && result);
   // https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg
   return (
+    <div>
+      <User/>
     <div className="d-flex flex-wrap justify-content-evenly gap-3">
       {result.map((e, i) => (
         // <p>{e.name}</p>
@@ -72,6 +75,8 @@ const Collection = () => {
          
         </div>
       ))}
+    </div>
+
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import User from "../Auth/User";
 
 const CardDetails = () => {
   const params = useParams();
@@ -30,6 +31,9 @@ const CardDetails = () => {
     );
   };
   return (
+    <div>
+
+      <User/>
     <div className="d-flex justify-content-center">
       {/* card component */}
       <div
@@ -72,6 +76,7 @@ const CardDetails = () => {
         </ul>
         <div className="card-body"></div>
       </div>
+    </div>
     </div>
   );
 };
